@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <link rel="icon" href="/img/crud.png" type="image/png" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+    <title>Registro</title>
+    <style></style>
+  </head>
+
+  <body>
+    <header>
+    <nav class="navBar">  <!--Menu de navegacion-->
+      <ul class="menu"><!--Lista-->
+        <a class="Encabezado" href="/">CRUD usuarios</a>
+        <li><a href='/registro'>Registro</a></li>
+        <li><a href='/users'>Listado</a></li>
+        <li><a href='/edit'>Editar</a></li>
+        <li><a href='/del'>Eliminar</a></li>
+
+      </ul>
+    </nav>
+    </header>
+    <div id="boxed">
+      <h1>Registro</h1>
+      <!-- TODO: Gestionar body -->
+      <!-- <form method="POST" action="/registro"> -->
+      <!-- formulario se envia en: x-www-form-urlencoded -->
+      <form id="formulario" method="POST" action="/registro">
+        <input type="text" name="name" placeholder="nombre" />
+        <input type="email" name="email" placeholder="email" />
+        <input type="number" name="age" placeholder="edad" />
+        <input type="text" name="gender" placeholder="género" />
+        <input type="text" name="profession" placeholder="profesión" />
+        <input type="number" name="salary" placeholder="salario" />
+       <br>
+       <div id="button-centered">
+       <button>Enviar</button>
+       </div>
+      </form>
+    </div>
+  </body>
+</html>

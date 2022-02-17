@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <link rel="icon" href="/img/crud.png" type="image/png"/>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+    <title>Eliminar Usuario</title>
+    <style>
+      .user{
+          margin: 50px 20px 50px 20px;
+          background-color:rgb(255, 255, 255);
+          padding: 10px;
+          opacity: 0.9;
+          font-family:sans-serif;
+      }
+      .name{
+          font-weight: bold;
+          font-size: 20px;
+      }
+      .user img{
+          width: 50px;
+      }
+  
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navBar">  <!--Menu de navegacion-->
+      <ul class="menu"><!--Lista-->
+        <a class="Encabezado" href="/">CRUD usuarios</a>
+        <li><a href='/registro'>Registro</a></li>
+        <li><a href='/users'>Listado</a></li>
+        <li><a href='/edit'>Editar</a></li>
+        <li><a href='/del'>Eliminar</a></li>
+      </ul>
+    </nav>
+    </header>
+  <div id="users">
+
+  </div>
+  <script>
+    console.log("Hola Chavaleeees");
+    fetch("/api/users")
+      .then(function (res) {
+        console.log(res)
+        return res.json()
+      })
+      .then(function (data) {
+          var users=document.getElementById("users")
+          console.log(data)
+          for(var user of data){
+          console.log(user)
+          users.innerHTML=users.innerHTML+`
+          <div class="user">
+              <form id="formulario" method="POST" action="/del">
+              <input name="id" type="hidden" value="${user.id}">
+                <p class="name">${user.name}</p>
+                <p>${user.email}</p>
+                <p>${user.age}</p>
+                <p>${user.gender}</p>
+                <p>${user.profession}</p>
+                <p>$${user.salary}</p>
+              <button>Eliminar</button>
+              </form>
+          </div>
+          `
+          }
+      });
+  </script>
+</body>
+</html>
